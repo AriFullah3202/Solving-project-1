@@ -3,6 +3,7 @@ let numberSet = "0123456789";
 let specialCharSet = "!@#$%^&*()";
 
 const getElement = (id) => {
+  console.log(id);
   const element = document.getElementById(id);
   return element;
 };
@@ -28,19 +29,20 @@ const handleCheckbox = () => {
   }
   generatePassword();
 };
+const charCount = getElement("char-count").innerText;
+console.log(charCount);
 
 const generatePassword = () => {
-  const passwordEl = getElement("pass");
-
-  const charCount = getElement("char-count");
+  const passwordEl = getElement("password");
 
   let password = "";
 
   for (let i = 0; i < charCount.length; i++) {
+    console.log("value of i" + i);
     const randomNumber = Math.floor(Math.random() * charSet.length);
     password += charSet.substring(randomNumber, randomNumber + 1);
   }
-
+  console.log("the password is" + password);
   passwordEl.innerText = password;
 };
 
